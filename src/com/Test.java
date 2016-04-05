@@ -1,5 +1,7 @@
 package com;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,14 +26,22 @@ public  class Test {
 
 	public static void main(String[] args)
 	{
-		String s1="abc";
-		String s2="def";
-		String s3=s1.concat(s2.toUpperCase());
-	//	StringBuffer str = new StringBuffer();
-	
-		//System.out.println(s1+s2+s3);
+//		String s1="abc";
+//		String s2="def";
+//		String s3=s1.concat(s2.toUpperCase());
+//	//	StringBuffer str = new StringBuffer();
+//	
+//		//System.out.println(s1+s2+s3);
+//		
+//		Test test = new Test();
+//		System.out.println(test.countVowelsRegex("AEIgtyhtgy"));
 		
-		Test test = new Test();
-		System.out.println(test.countVowelsRegex("AEIgtyhtgy"));
+		Set<Short> set = new HashSet<>();
+		
+		for(short i=0; i<=50;i++) {
+			set.add(i);
+			set.remove(i-1);
+		}
+		System.out.println("set size :"+set.size());
 	}
 }
