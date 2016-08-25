@@ -2,8 +2,7 @@ package com.strings;
 
 
 /*
- * Implements function which removes duplicates from string without
- * using additional storage
+ * Implements function which removes duplicates from string 
  */
 public class RemoveDuplicates {
 
@@ -36,11 +35,41 @@ public class RemoveDuplicates {
 	}
 	
 	
+	public String removeWithStorage(String input) {
+		
+		if(input==null || input.isEmpty()) {
+			return null;
+		}
+		if(input.length() < 2) {
+			return input;
+		}
+		
+		boolean[] check = new boolean[256];
+		int end=1;
+		char[] strArray = new char[input.length()];
+		strArray = input.toCharArray();
+		check[strArray[0]] = true;
+		
+		for(int i=1; i < strArray.length; i++) {
+		       	
+			     if(!check[strArray[i]]) {
+			    	 
+			    	 strArray[end] = strArray[i];
+			    	 end++;
+			    	 check[strArray[i]] = true; 
+			     }   
+		}
+		
+		return new String(strArray).substring(0,end);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String input = "abbbbbd";
+		String input = "abbbd";
 		RemoveDuplicates rmDuplicates = new RemoveDuplicates();
 		System.out.println(rmDuplicates.getUniquechars(input));
+		
+		System.out.println("Using additional storage:" +  rmDuplicates.removeWithStorage(input));
 	}
 
 }
